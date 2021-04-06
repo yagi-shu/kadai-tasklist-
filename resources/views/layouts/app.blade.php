@@ -20,13 +20,16 @@
                 <div class="collapse navbar-collapse" id="nav-bar">
                     <ul class="navbar-nav mr-auto"></ul>
                     <ul class="navbar-nav">
-                        {!! link_to_route('tasks.create', '新規のメッセージの投稿', [], ['class' => 'btn btn-primary']) !!}
+                        {!! link_to_route('tasks.create', '新規投稿', [], ['class' => 'btn btn-primary']) !!}
                     </ul>
                 </div>
             </nav>
         </header>
 
         <div class="container">
+            
+            @include('commons.error_tasks')
+            
             @yield('content')
         </div>
 
