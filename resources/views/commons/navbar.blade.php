@@ -9,11 +9,15 @@
 
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>
-            <ul class="nav navbar-nav navbar-right">
-                {{-- ユーザ登録ページへのリンク --}}
-                <li>{!! link_to_route('signup.get', 'Signup', [], ['class' => 'nav-link']) !!}</li>
-                {{-- ログインページへのリンク --}}
-                <li><a href="#">Login</a></li>
+            <ul class="navbar-nav">
+                @if (Auth::check())
+                    <li class="nav-item">{!! link_to_route('logout.get', 'Logout') !!}</li>
+                @else
+                    {{-- ユーザ登録ページへのリンク --}}
+                    <li class="nav-item">{!! link_to_route('signup.get', 'Signup', [], ['class' => 'nav-link']) !!}</li>
+                    {{-- ログインページへのリンク --}}
+                    <li class="nav-item">{!! link_to_route('login', 'Login', [], ['class' => 'nav-link']) !!}</li>
+                @endif
             </ul>
         </div>
     </nav>
